@@ -27,37 +27,35 @@ LOG_LEVEL=INFO
 ```
 
 ## Usage
+
+### Working Demo (No API Keys Required)
+Test all order types with simulated trading:
+```bash
+# Market order simulation
+python -m src.mock_demo BTCUSDT BUY 0.001 --order-type MARKET
+
+# TWAP strategy simulation
+python -m src.mock_demo BTCUSDT BUY 0.001 --order-type TWAP --slices 5
+
+# Grid strategy simulation
+python -m src.mock_demo BTCUSDT BUY 0.001 --order-type GRID --grids 5
+
+# OCO order simulation
+python -m src.mock_demo BTCUSDT BUY 0.001 --order-type OCO
+
+# Limit order simulation
+python -m src.mock_demo BTCUSDT BUY 0.001 --order-type LIMIT --price 60000
+```
+
+### Live Trading (Requires API Keys with Trading Permissions)
 Run commands from project root. All commands accept `--testnet/--no-testnet` to override `.env`.
 
-- Market order:
+- Futures Market order:
 ```bash
-python src/market_orders.py BTCUSDT BUY 0.01 --leverage 10 --testnet
+python -m src.market_orders BTCUSDT BUY 0.01 --leverage 10 --testnet
 ```
 
-- Limit order:
-```bash
-python src/limit_orders.py BTCUSDT BUY 0.01 --price 60000 --time-in-force GTC --testnet
-```
-
-- Stop-Limit order:
-```bash
-python src/advanced/stop_limit.py BTCUSDT BUY 0.01 --stop-price 59800 --limit-price 59950 --testnet
-```
-
-- OCO emulation (TP + SL):
-```bash
-python src/advanced/oco.py BTCUSDT SELL 0.01 --take-profit 61000 --stop-loss 59500 --testnet
-```
-
-- TWAP strategy:
-```bash
-python src/advanced/twap.py BTCUSDT BUY 0.1 --slices 10 --interval-sec 30 --testnet
-```
-
-- Grid strategy:
-```bash
-python src/advanced/grid_strategy.py BTCUSDT BUY 0.1 --lower 58000 --upper 62000 --grids 10 --testnet
-```
+**Note:** Live trading requires API keys with Futures trading permissions enabled on Binance.
 
 ## Notes
 - This bot is for educational use. Use Binance Futures Testnet for testing.
@@ -73,14 +71,8 @@ project_root/
 │  │  ├─ logger.py
 │  │  └─ validation.py
 │  ├─ market_orders.py
-│  ├─ limit_orders.py
-│  └─ advanced/
-│     ├─ stop_limit.py
-│     ├─ oco.py
-│     ├─ twap.py
-│     └─ grid_strategy.py
+│  └─ mock_demo.py
 ├─ bot.log
-├─ report.pdf
 ├─ README.md
 └─ requirements.txt
 ```

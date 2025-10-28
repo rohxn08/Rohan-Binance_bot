@@ -17,3 +17,335 @@ Traceback (most recent call last):
   File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
     raise ClientError(status_code, err["code"], err["msg"], response.headers)
 binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 15:57:24 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8b6dd0d472e21058db2ca2ab69bddafa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'LyNQkfn4Mxn5JhPyxrnKTCt6rOwOjvVK1xabeaIa-Ac7gJ7FZw3aTg=='})
+2025-10-28 22:59:28 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 22:59:28 | INFO | market_orders | Setting leverage=10 for BTCUSDT
+2025-10-28 22:59:30 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:29:30 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4f394bb2485ab8cd24ff0ea2fe25855e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': '7o5yUNxznZZr5DCoQEHvZB9hwJY_vWa-IF-lqIKpOcxwDhBI_W9scA=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 39, in main
+    client.change_leverage(symbol=input_data.symbol, leverage=leverage, recvWindow=recv_window)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 592, in change_leverage
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:29:30 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 4f394bb2485ab8cd24ff0ea2fe25855e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': '7o5yUNxznZZr5DCoQEHvZB9hwJY_vWa-IF-lqIKpOcxwDhBI_W9scA=='})
+2025-10-28 22:59:45 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 22:59:47 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:29:47 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 eacc4bc352ad91f6c2b8728046877502.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'kHcdQni7S8ApiHNO5upMyRMetYOvLrkO1CZFD8WxDZamvmK5r7fnaw=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:29:47 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 eacc4bc352ad91f6c2b8728046877502.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'kHcdQni7S8ApiHNO5upMyRMetYOvLrkO1CZFD8WxDZamvmK5r7fnaw=='})
+2025-10-28 23:02:00 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:02:01 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:32:01 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ec5dbb20886d0f8421791a79e28876b0.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'MgRT7xH0-h0P3O5EFCDUcFi_QjhhjrpQRdKNSfdQKpwHT8qDaCk1xQ=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:32:01 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 ec5dbb20886d0f8421791a79e28876b0.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'MgRT7xH0-h0P3O5EFCDUcFi_QjhhjrpQRdKNSfdQKpwHT8qDaCk1xQ=='})
+2025-10-28 23:06:59 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:07:01 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:37:01 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8b6dd0d472e21058db2ca2ab69bddafa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'NFVCvbLpxOyMSVhVxxlI3KXgoREAIeMFwzz5OUkb667G5Y5HIJgU8g=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:37:01 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8b6dd0d472e21058db2ca2ab69bddafa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'NFVCvbLpxOyMSVhVxxlI3KXgoREAIeMFwzz5OUkb667G5Y5HIJgU8g=='})
+2025-10-28 23:21:51 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=False
+2025-10-28 23:21:52 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:51:52 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Tengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 e14a6e428a17d6552c9d200b559f4bb4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P2', 'X-Amz-Cf-Id': '-aR1ndQQ6bHuPa8sR9tSdjxdtFwlVPHdIWcinDGCbcPJwGofN5sw-w=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 17:51:52 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Tengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 e14a6e428a17d6552c9d200b559f4bb4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P2', 'X-Amz-Cf-Id': '-aR1ndQQ6bHuPa8sR9tSdjxdtFwlVPHdIWcinDGCbcPJwGofN5sw-w=='})
+2025-10-28 23:52:07 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:52:09 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:22:09 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 534b228d7da687f51d99c14ca2e26f52.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': '-uRViNMf4VLBjCOe-kcJc6wrU-qzgIiZ2rhdPIb_5ETAOZJSbmGOxQ=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:22:09 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 534b228d7da687f51d99c14ca2e26f52.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': '-uRViNMf4VLBjCOe-kcJc6wrU-qzgIiZ2rhdPIb_5ETAOZJSbmGOxQ=='})
+2025-10-28 23:54:18 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:54:20 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:24:20 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 2f8bce85b3232f01dc0a9ceec714d90c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'Dpo1NeRLcA2j2JnCpBM1D13kUwCDLMVGEklqAbp0GSh5zkS8dWm7sw=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:24:20 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 2f8bce85b3232f01dc0a9ceec714d90c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'Dpo1NeRLcA2j2JnCpBM1D13kUwCDLMVGEklqAbp0GSh5zkS8dWm7sw=='})
+2025-10-28 23:57:07 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:57:08 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:27:08 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 7f91d3358cb8b5b50ea653cbde2d162c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'wFLoE4x7KcJa2VVHWCE8xu6IdW6YPnT3LDGYSJAf0htBriBsVOmAbw=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:27:08 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 7f91d3358cb8b5b50ea653cbde2d162c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'wFLoE4x7KcJa2VVHWCE8xu6IdW6YPnT3LDGYSJAf0htBriBsVOmAbw=='})
+2025-10-28 23:57:49 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:57:51 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:27:51 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 303e917d845d3965f206781fd60fa0d4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'UJW3EisEbtXJjY-5EaARRZE3M30FONM4Eg-tZz3ZY4ZSS4_nIYQ3lQ=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:27:51 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 303e917d845d3965f206781fd60fa0d4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'UJW3EisEbtXJjY-5EaARRZE3M30FONM4Eg-tZz3ZY4ZSS4_nIYQ3lQ=='})
+2025-10-28 23:59:31 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 23:59:33 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:29:33 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 b05256e5803ee48f876b62991082abe4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': '7893KfyEOX-8Up2FpvId5Yv_Hcj75WobqsMPdTqaSLtI7r-ddOrtkg=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:29:33 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 b05256e5803ee48f876b62991082abe4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': '7893KfyEOX-8Up2FpvId5Yv_Hcj75WobqsMPdTqaSLtI7r-ddOrtkg=='})
+2025-10-29 00:01:36 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:01:38 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:31:38 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 7edf3f39c1a5f382b0d26627290c768c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'zotpOh0uNqcGG3xqXbK0cSMBYB_KLF2016hrDqHqsVmUSCrG-cqG8g=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:31:38 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 7edf3f39c1a5f382b0d26627290c768c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'zotpOh0uNqcGG3xqXbK0cSMBYB_KLF2016hrDqHqsVmUSCrG-cqG8g=='})
+2025-10-29 00:07:45 | INFO | spot_market_orders | Placing SPOT MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:07:45 | ERROR | spot_market_orders | Failed to place spot market order: 'Client' object has no attribute 'new_order'
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\spot_market_orders.py", line 33, in main
+    resp = client.new_order(
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'Client' object has no attribute 'new_order'
+2025-10-29 00:08:14 | INFO | spot_market_orders | Placing SPOT MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:08:15 | ERROR | spot_market_orders | Failed to place spot market order: APIError(code=-2015): Invalid API-key, IP, or permissions for action.
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\spot_market_orders.py", line 33, in main
+    resp = client.create_order(
+    	symbol=input_data.symbol,
+    ...<2 lines>...
+    	quantity=input_data.quantity,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 1435, in create_order
+    return self._post("order", True, data=params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 190, in _post
+    return self._request_api("post", path, signed, version, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 119, in _request_api
+    return self._request(method, uri, signed, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 91, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 100, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-2015): Invalid API-key, IP, or permissions for action.
+2025-10-29 00:09:54 | INFO | spot_demo | Placing SPOT MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:09:54 | INFO | spot_demo | Connection test: {}
+2025-10-29 00:09:54 | ERROR | spot_demo | Failed to place spot market order: APIError(code=-2015): Invalid API-key, IP, or permissions for action.
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\spot_demo.py", line 41, in main
+    account_info = client.get_account()
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 2245, in get_account
+    return self._get("account", True, data=params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 185, in _get
+    return self._request_api("get", path, signed, version, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 119, in _request_api
+    return self._request(method, uri, signed, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 91, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\client.py", line 100, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-2015): Invalid API-key, IP, or permissions for action.
+2025-10-29 00:10:45 | INFO | mock_demo | Simulating MARKET BUY 0.001 BTCUSDT
+2025-10-29 00:12:18 | INFO | mock_demo | Simulating MARKET BUY 0.001 BTCUSDT
+2025-10-29 00:12:18 | INFO | mock_demo | Mock MARKET order simulation completed
+2025-10-29 00:12:34 | INFO | mock_demo | Simulating TWAP BUY 0.001 BTCUSDT
+2025-10-29 00:12:37 | INFO | mock_demo | Mock TWAP order simulation completed
+2025-10-29 00:12:52 | INFO | mock_demo | Simulating GRID BUY 0.001 BTCUSDT
+2025-10-29 00:12:52 | INFO | mock_demo | Mock GRID order simulation completed
+2025-10-29 00:19:35 | INFO | mock_demo | Simulating MARKET BUY 0.001 BTCUSDT
+2025-10-29 00:19:35 | INFO | mock_demo | Mock MARKET order simulation completed
+2025-10-29 00:21:40 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:21:41 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:51:41 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5d782e204f31cf29d8ed8448ac335be4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'pZ6GrSkxXVrMimCIx1ghHJ4Pv7Es7qoO7gpYvugclk-OFysXQp3jOA=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:51:41 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5d782e204f31cf29d8ed8448ac335be4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'pZ6GrSkxXVrMimCIx1ghHJ4Pv7Es7qoO7gpYvugclk-OFysXQp3jOA=='})
+2025-10-29 00:26:25 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-29 00:26:26 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:56:26 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 28355e222ef4943a0dfc9ac2fc1052d0.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'rbwZYFLnUN4sOlp2_SKgHxZt0ZQ4R-ep1umqX0GOGyT_oCJb7lLG2Q=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 41, in main
+    resp = client.new_order(
+    	symbol=input_data.symbol,
+    ...<5 lines>...
+    	recvWindow=recv_window,
+    )
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 116, in new_order
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 18:56:26 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '-1', 'x-response-time': '1ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 28355e222ef4943a0dfc9ac2fc1052d0.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAA51-P1', 'X-Amz-Cf-Id': 'rbwZYFLnUN4sOlp2_SKgHxZt0ZQ4R-ep1umqX0GOGyT_oCJb7lLG2Q=='})
