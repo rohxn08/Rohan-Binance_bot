@@ -1,0 +1,19 @@
+2025-10-28 21:27:22 | INFO | market_orders | Placing MARKET BUY 0.001 BTCUSDT | testnet=True
+2025-10-28 21:27:22 | INFO | market_orders | Setting leverage=10 for BTCUSDT
+2025-10-28 21:27:23 | ERROR | market_orders | Failed to place market order: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 15:57:24 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8b6dd0d472e21058db2ca2ab69bddafa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'LyNQkfn4Mxn5JhPyxrnKTCt6rOwOjvVK1xabeaIa-Ac7gJ7FZw3aTg=='})
+Traceback (most recent call last):
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\src\market_orders.py", line 39, in main
+    client.change_leverage(symbol=input_data.symbol, leverage=leverage, recvWindow=recv_window)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\um_futures\account.py", line 592, in change_leverage
+    return self.sign_request("POST", url_path, params)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 83, in sign_request
+    return self.send_request(http_method, url_path, payload, special)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 118, in send_request
+    self._handle_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\OneDrive\Desktop\Rohan-binance-bot\.venv\Lib\site-packages\binance\api.py", line 172, in _handle_exception
+    raise ClientError(status_code, err["code"], err["msg"], response.headers)
+binance.error.ClientError: (401, -2015, 'Invalid API-key, IP, or permissions for action', {'Content-Type': 'application/json', 'Content-Length': '69', 'Connection': 'keep-alive', 'Date': 'Tue, 28 Oct 2025 15:57:24 GMT', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Server': 'Bengine', 'x-mbx-used-weight-1m': '1', 'x-response-time': '2ms', 'Access-Control-Allow-Origin': '*', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 8b6dd0d472e21058db2ca2ab69bddafa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BLR50-P4', 'X-Amz-Cf-Id': 'LyNQkfn4Mxn5JhPyxrnKTCt6rOwOjvVK1xabeaIa-Ac7gJ7FZw3aTg=='})
